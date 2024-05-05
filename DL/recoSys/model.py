@@ -24,3 +24,17 @@ class RecSysModel(tez.Model):     # tez library will be used in here
             'rmse' : np.sqrt(metrics.mean_squared_error(rating, output) )
         }
         
+    def forward(self, users, movies, ratings=None):
+        
+        user_embed = self.user_embed(users)
+        movie_embeds = self.movie_embed(movies)
+        
+        output = torch.cat([user_embed, movie_embeds], dim=1)
+        output = self.out(output)
+        
+        loss = nn.MSELoss()(output, ratings.view(-1,1))
+        calc_metrics = self.monitor_metrics(output, ratings.view(-1,1) )
+        
+        return output, loss, calc_metrics
+    
+        
