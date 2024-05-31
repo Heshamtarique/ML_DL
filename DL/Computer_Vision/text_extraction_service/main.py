@@ -1,4 +1,5 @@
 class PDFTextExtractor:
+    
     def __init__(self, directory):   # essential to pass as args
         self.directory = directory
         self.extracted_text = {}
@@ -41,3 +42,22 @@ class PDFTextExtractor:
                 
         return self.extracted_text
          
+            
+    @classmethod        
+    def from_dictionary(cls, directory):
+        # creating instance of the class defined above from  a dict
+        return  cls(directory)
+    
+    
+    def save_extracted_text(self, output_file):
+        
+        try:
+            with open(output_file, 'w', encoding='uft-8') as f:
+                for filename, text in self.extracted_text.items():
+                    f.write(f"extracted text from {filename}: \n{text}\n\n")
+            print(f"extracted text saved to {output_file}")
+
+        except Exception as e:
+            print(f"Error saving the extracted text: {e}")
+    
+    
