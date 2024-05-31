@@ -59,5 +59,20 @@ class PDFTextExtractor:
 
         except Exception as e:
             print(f"Error saving the extracted text: {e}")
+
+
+
+
+if __name__=="__main__":
+    directory = './Desktop/doc'
+    output_file = './Desktop/doc/extracted_text.txt'
+    
+    # creating instance for class method 
+    pdf_extractor = PDFTextExtractor.from_dictionary(directory)
+    extracted_texts = pdf_extractor.extract_text_from_directory()
+    pdf_extractor.save_extracted_text(output_file)
+    
+    for filename, text in extracted_texts.items():
+        print(f"extracted text from {filename}: \n{text[:500]}...\n")
     
     
