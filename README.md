@@ -1,6 +1,6 @@
 ## ML_DL
 ### Covering projects based on 
-* ML
+
 * DL: This folder contains 2 subfolders
   * NLP
   * CV
@@ -11,4 +11,6 @@
   * Text Summarization service using Foundation models
   * Named Entity Recognition using Advanced Deep Learning Techniques.
 
+
+* Machine Learning Folder
 
