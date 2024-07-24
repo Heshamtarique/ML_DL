@@ -6,7 +6,7 @@
   * CV
  
     
-In NLP folder 3 projects could be found:
+* In NLP folder 3 projects could be found:
   * Building a Recommendation System using Advanced Deep Learning Technique.
   * Text Summarization service using Foundation models
   * Named Entity Recognition using Advanced Deep Learning Techniques.
